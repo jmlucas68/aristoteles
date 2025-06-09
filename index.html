@@ -3,338 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aristóteles: Vida, Obra y Pensamiento</title>
+    <title>Aristóteles - El Filósofo de la Lógica y la Realidad</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Georgia', serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
         }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            background: #444;
-            color: #fff;
-            padding: 0.5rem 0;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0 1rem;
-        }
+
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 2rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        section {
-            background: #fff;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ffffff;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23000000;stop-opacity:0.3"/></radialGradient></defs><rect width="1000" height="1000" fill="url(%23grad)"/></svg>');
+            background-size: cover;
+            color: white;
         }
-        h1, h2, h3 {
-            color: #2a5a8a;
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
         }
-        .quote {
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: -2px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
             font-style: italic;
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-            border-left: 5px solid #2a5a8a;
-            color: #555;
         }
-        .image-container {
+
+        .hero .dates {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            display: inline-block;
+        }
+
+        /* Floating elements */
+        .floating-element {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: -2s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: -4s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -1s;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .section h2 {
+            font-size: 3rem;
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 3rem;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+
+        /* Philosophy Cards */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
+
+        .philosophy-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
-        footer {
+
+        .philosophy-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .philosophy-card h3 {
+            color: #8b5cf6;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #8b5cf6;
+            padding-bottom: 10px;
+        }
+
+        .philosophy-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a5568;
+        }
+
+        /* Works Section */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .work-item {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border-left: 5px solid #f59e0b;
+        }
+
+        .work-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+            border-left-width: 8px;
+        }
+
+        .work-item h4 {
+            color: #dc2626;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .work-item p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Links Section */
+        .links-section {
+            background: rgba(0,0,0,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .link-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 25px;
             text-align: center;
-            padding: 1rem 0;
-            background: #333;
-            color: #fff;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
-        a {
-            color: #2a5a8a;
+
+        .link-card:hover {
+            transform: translateY(-5px) rotate(2deg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .link-card a {
+            color: white;
             text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: block;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .link-card p {
+            color: rgba(255,255,255,0.8);
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(240deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .philosophy-grid,
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Aristóteles: El Estagirita</h1>
-        <p>El maestro de los que saben</p>
-    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        
+        <div class="hero-content">
+            <h1>ARISTÓTELES</h1>
+            <p class="subtitle">El Estagirita - Maestro de la Lógica y la Realidad</p>
+            <div class="dates">384 a.C. - 322 a.C.</div>
+        </div>
+        
+        <div class="scroll-indicator">↓</div>
+    </section>
 
-    <nav>
-        <a href="#vida">Vida</a>
-        <a href="#obra">Obra</a>
-        <a href="#pensamiento">Pensamiento</a>
-        <a href="#influencias">Influencias</a>
-        <a href="#teologia">Influencia en la Teología</a>
-        <a href="#enlaces">Enlaces Externos</a>
-    </nav>
-
-    <div class="container">
-        <section id="vida">
-            <h2>Vida de Aristóteles</h2>
-            <div class="image-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg" alt="Busto de Aristóteles">
-                <p>Busto de Aristóteles (original romano, copia de un original griego perdido de Lisipo).</p>
+    <!-- Philosophy Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Su Filosofía</h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <h3>🧠 Lógica y Silogismo</h3>
+                    <p>Aristóteles fundó la lógica formal, creando el sistema de silogismos que dominó el pensamiento occidental durante más de dos milenios. Su "Organon" estableció las reglas del razonamiento válido, distinguiendo entre premisas universales y particulares, y creando un método sistemático para evaluar argumentos.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <h3>🌍 Metafísica y Realidad</h3>
+                    <p>Desarrolló una teoría completa del ser, distinguiendo entre sustancia y accidente, acto y potencia. Su concepto de las "cuatro causas" (material, formal, eficiente y final) explicaba cómo y por qué existen las cosas. Propuso la existencia del "Motor Inmóvil" como causa primera del universo.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <h3>⚖️ Ética y Virtud</h3>
+                    <p>Su ética se basa en el concepto de "eudaimonía" (felicidad o florecimiento humano). Propuso la teoría del "justo medio" - las virtudes como equilibrio entre extremos. Distinguió entre virtudes intelectuales y morales, enfatizando que la virtud se adquiere a través de la práctica y el hábito.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <h3>🏛️ Política y Sociedad</h3>
+                    <p>Consideraba al ser humano como "animal político" por naturaleza. Analizó diferentes formas de gobierno (monarquía, aristocracia, democracia) y sus desviaciones (tiranía, oligarquía, demagogia). Defendió la polis como el marco natural para el desarrollo humano completo.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <h3>🎭 Poética y Arte</h3>
+                    <p>Su "Poética" estableció los fundamentos de la teoría literaria occidental. Definió la tragedia, sus elementos (trama, carácter, pensamiento, dicción, música, espectáculo) y conceptos como catarsis, hamartia y peripecia. Influyó profundamente en el desarrollo del drama occidental.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <h3>🔬 Ciencia y Conocimiento</h3>
+                    <p>Estableció las bases del método científico, distinguiendo entre conocimiento teórico, práctico y productivo. Sus observaciones en biología fueron extraordinarias para su época. Creó un sistema de clasificación de los seres vivos que perduró hasta el siglo XVIII.</p>
+                </div>
             </div>
-            <p>Aristóteles (en griego antiguo: Ἀριστοτέλης, *Aristotélēs*; Estagira, 384 a. C. - Calcis, 322 a. C.) fue un polímata: filósofo, lógico y científico de la Antigua Grecia cuyas ideas han ejercido una enorme influencia sobre la historia intelectual de Occidente por más de dos milenios.</p>
-            <p>Nacido en Estagira, una ciudad de la antigua Macedonia, su padre, Nicómaco, era médico personal del rey Amintas III de Macedonia, lo que le permitió a Aristóteles establecer una relación temprana con la corte macedonia. A la edad de diecisiete años, se trasladó a Atenas para estudiar en la Academia de Platón, donde permaneció durante veinte años, hasta la muerte de su maestro en 347 a. C. Durante este período, desarrolló una estrecha relación con Platón, aunque con el tiempo fue elaborando su propia filosofía que, en muchos aspectos, se distanció de la de su mentor.</p>
-            <p>Tras la muerte de Platón, Aristóteles viajó a Aso, en Asia Menor, donde se casó con Pitias y fundó una escuela. Más tarde, se trasladó a Mitilene, en la isla de Lesbos. En el año 343 a. C., fue llamado por el rey Filipo II de Macedonia para ser tutor de su hijo, Alejandro Magno. Esta relación duró varios años y se considera que tuvo una influencia significativa en la formación del futuro conquistador.</p>
-            <p>En el año 335 a. C., Aristóteles regresó a Atenas y fundó su propia escuela, el Liceo, que se convirtió en un importante centro de investigación y enseñanza. En el Liceo, se dedicó a la enseñanza y a la investigación en una amplia gama de disciplinas, desde la lógica y la metafísica hasta la ética, la política, la poética, la retórica, la física, la biología y la astronomía. Sus discípulos eran conocidos como "peripatéticos" (los que pasean), debido a la costumbre de Aristóteles de enseñar mientras caminaba por los jardines del Liceo.</p>
-            <p>Tras la muerte de Alejandro Magno en 323 a. C., la atmósfera política en Atenas se volvió hostil hacia aquellos vinculados con Macedonia. Aristóteles fue acusado de impiedad, una acusación similar a la que había enfrentado Sócrates. Para evitar ser un segundo caso de ejecución de filósofo, huyó a Calcis, en la isla de Eubea, donde murió un año después, en 322 a. C., a la edad de 62 años.</p>
-        </section>
+        </div>
+    </section>
 
-        <section id="contexto">
-            <h2>Contexto Histórico y Filosófico</h2>
-            <h3>Contexto Histórico</h3>
-            <p>Aristóteles vivió durante un período crucial de la historia griega. Nació en una época en que las ciudades-estado griegas, como Atenas y Esparta, estaban en declive, y el poder de Macedonia estaba en ascenso. Su tutela de Alejandro Magno lo conectó directamente con el expansionismo macedonio que culminaría en la creación de un vasto imperio helenístico. Este contexto de cambios políticos y territoriales influyó en su pensamiento político, que se centró en la polis como la unidad fundamental de la vida social, pero también reconoció la diversidad de formas de gobierno.</p>
-            <h3>Contexto Filosófico</h3>
-            <p>Filosóficamente, Aristóteles se inserta en la tradición post-socrática. Fue discípulo de Platón durante dos décadas, lo que lo situó en el corazón de la filosofía ateniense. Aunque inicialmente influenciado por las ideas platónicas, especialmente la teoría de las Formas, Aristóteles desarrolló una crítica profunda a esta teoría y propuso una filosofía más empírica y centrada en el mundo sensible. Su trabajo marcó un punto de inflexión, pasando de la especulación metafísica abstracta a un enfoque más sistemático y empírico de la investigación, sentando las bases para las disciplinas científicas.</p>
-        </section>
-
-        <section id="obra">
-            <h2>Principales Obras de Aristóteles</h2>
-            <p>La obra de Aristóteles es vastísima y abarca casi todos los campos del saber de su tiempo. Sus escritos se clasifican generalmente en dos categorías: esotéricos (destinados a sus alumnos del Liceo, no publicados) y exotéricos (para el público general, hoy perdidos en su mayoría). Lo que nos ha llegado son principalmente los escritos esotéricos, que se caracterizan por ser más bien apuntes y tratados sistemáticos.</p>
-            <ul>
-                <li>
-                    <strong>Órganon (Tratados de Lógica):</strong>
-                    <ul>
-                        <li>Categorías</li>
-                        <li>Sobre la Interpretación</li>
-                        <li>Primeros Analíticos (Silogismo)</li>
-                        <li>Segundos Analíticos (Demostración y ciencia)</li>
-                        <li>Tópicos</li>
-                        <li>Refutaciones Sofísticas</li>
-                    </ul>
-                    <p><strong>Enlaces:</strong></p>
-                    <ul>
-                        <li><a href="https://www.gutenberg.org/ebooks/search/?query=Organon+Aristotle&language=es" target="_blank">Project Gutenberg (Buscar en español)</a></li>
-                        <li><a href="https://archive.org/details/obrasde01arisgoog" target="_blank">Obras de Aristóteles Vol. I (Lógica) - Archive.org</a></li>
-                        <li><a href="https://www.amazon.es/Organon-Gredos-Aristoteles/dp/8424916603" target="_blank">Órganon en Amazon España (Gredos)</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Física:</strong>
-                    <p>Investiga los principios del movimiento, el espacio, el tiempo y la causalidad.</p>
-                    <p><strong>Enlaces:</strong></p>
-                    <ul>
-                        <li><a href="https://archive.org/details/fsicaaristteles" target="_blank">Física de Aristóteles en Archive.org</a></li>
-                        <li><a href="https://www.amazon.es/F%C3%ADsica-Arist%C3%B3teles/dp/8424910214" target="_blank">Física en Amazon España (Gredos)</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Metafísica:</strong>
-                    <p>Trata de la "filosofía primera", el estudio del ser en cuanto ser, las causas primeras y los principios últimos.</p>
-                    <p><strong>Enlaces:</strong></p>
-                    <ul>
-                        <li><a href="https://www.gutenberg.org/ebooks/search/?query=Metafisica+Aristoteles&language=es" target="_blank">Project Gutenberg (Buscar en español)</a></li>
-                        <li><a href="https://archive.org/details/metafsicaaristteles" target="_blank">Metafísica de Aristóteles en Archive.org</a></li>
-                        <li><a href="https://www.amazon.es/Metaf%C3%ADsica-Arist%C3%B3teles/dp/8424908272" target="_blank">Metafísica en Amazon España (Gredos)</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Ética a Nicómaco:</strong>
-                    <p>Su principal obra sobre ética, donde explora la naturaleza de la felicidad (eudaimonía), la virtud y el carácter moral.</p>
-                    <p><strong>Enlaces:</strong></p>
-                    <ul>
-                        <li><a href="https://www.gutenberg.org/ebooks/search/?query=Etica+a+Nicomaco+Aristoteles&language=es" target="_blank">Project Gutenberg (Buscar en español)</a></li>
-                        <li><a href="https://archive.org/details/eticaanicomaco00aris" target="_blank">Ética a Nicómaco en Archive.org</a></li>
-                        <li><a href="https://www.amazon.es/Etica-Nicomaco-Aristoteles/dp/8424911075" target="_blank">Ética a Nicómaco en Amazon España (Gredos)</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Política:</strong>
-                    <p>Analiza las diferentes formas de gobierno, la naturaleza del estado y la vida en comunidad.</p>
-                    <p><strong>Enlaces:</strong></p>
-                    <ul>
-                        <li><a href="https://www.gutenberg.org/ebooks/search/?query=Politica+Aristoteles&language=es" target="_blank">Project Gutenberg (Buscar en español)</a></li>
-                        <li><a href="https://archive.org/details/lpoliticaaristteles" target="_blank">La Política de Aristóteles en Archive.org</a></li>
-                        <li><a href="https://www.amazon.es/Pol%C3%ADtica-Arist%C3%B3teles/dp/8424912950" target="_blank">Política en Amazon España (Gredos)</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Retórica:</strong>
-                    <p>Estudio de la persuasión y la oratoria.</p>
-                    <p><strong>Enlaces:</strong></p>
-                    <ul>
-                        <li><a href="https://archive.org/details/retoricaaristtel00aris" target="_blank">Retórica de Aristóteles en Archive.org</a></li>
-                        <li><a href="https://www.amazon.es/Retorica-Poetica-Aristoteles/dp/842491421X" target="_blank">Retórica y Poética en Amazon España (Gredos)</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Poética:</strong>
-                    <p>Examina la naturaleza de la poesía y el drama, particularmente la tragedia.</p>
-                    <p><strong>Enlaces:</strong></p>
-                    <ul>
-                        <li><a href="https://www.gutenberg.org/ebooks/search/?query=Poetica+Aristoteles&language=es" target="_blank">Project Gutenberg (Buscar en español)</a></li>
-                        <li><a href="https://archive.org/details/poticaaristteles" target="_blank">Poética de Aristóteles en Archive.org</a></li>
-                        <li><a href="https://www.amazon.es/Retorica-Poetica-Aristoteles/dp/842491421X" target="_blank">Retórica y Poética en Amazon España (Gredos)</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Historia de los Animales, Partes de los Animales, Generación de los Animales:</strong>
-                    <p>Importantes tratados de biología y zoología, fruto de su observación empírica.</p>
-                    <p><strong>Enlaces:</strong></p>
-                    <ul>
-                        <li><a href="https://www.amazon.es/Historia-animales-Parte-Aristoteles/dp/8424914449" target="_blank">Historia de los Animales en Amazon España (Gredos)</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-
-        <section id="pensamiento">
-            <h2>Pensamiento Filosófico de Aristóteles</h2>
-            <p>El pensamiento de Aristóteles se caracteriza por su enfoque sistemático y empírico, que contrasta con el idealismo de Platón. Sus contribuciones abarcan una vasta gama de disciplinas, y muchas de sus ideas sentaron las bases para el desarrollo posterior de la ciencia y la filosofía occidental.</p>
-
-            <h3>Lógica: El Órganon y el Silogismo</h3>
-            <p>Aristóteles es considerado el padre de la lógica formal. Su colección de trabajos sobre lógica, conocida como el *Órganon*, establece las bases del razonamiento deductivo, con el silogismo como su concepto central.</p>
-            <div class="quote">
-                <p>"Cuando de ciertas cosas se sigue necesariamente algo distinto de ellas por el hecho de ser aquellas, esto es un silogismo."</p>
-                <p>— *Primeros Analíticos*, I, 24b 18-20</p>
+    <!-- Works Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Obras Principales</h2>
+            <div class="works-grid">
+                <div class="work-item">
+                    <h4>📚 Organon</h4>
+                    <p>Colección de seis tratados sobre lógica: Categorías, Sobre la interpretación, Primeros analíticos, Segundos analíticos, Tópicos y Refutaciones sofísticas. Fundamento de la lógica occidental.</p>
+                </div>
+                
+                <div class="work-item">
+                    <h4>🌌 Metafísica</h4>
+                    <p>Catorce libros que exploran la naturaleza del ser, la sustancia, la causalidad y la existencia de Dios. Obra fundamental de la filosofía occidental que investiga "el ser en cuanto ser".</p>
+                </div>
+                
+                <div class="work-item">
+                    <h4>⚖️ Ética a Nicómaco</h4>
+                    <p>Su obra ética más importante, dedicada a su hijo Nicómaco. Explora la naturaleza de la virtud, la felicidad, la amistad y la justicia. Base de la ética virtue.</p>
+                </div>
+                
+                <div class="work-item">
+                    <h4>🏛️ Política</h4>
+                    <p>Análisis sistemático de las formas de gobierno, la naturaleza del estado y la vida en comunidad. Incluye su famosa definición del hombre como "animal político".</p>
+                </div>
+                
+                <div class="work-item">
+                    <h4>🎭 Poética</h4>
+                    <p>Tratado sobre literatura y drama que define la tragedia y establece los principios de la narrativa. Conceptos como catarsis y mimesis siguen siendo relevantes hoy.</p>
+                </div>
+                
+                <div class="work-item">
+                    <h4>🌱 Historia de los Animales</h4>
+                    <p>Observaciones detalladas sobre el comportamiento y anatomía animal. Muestra su método empírico y su extraordinaria capacidad de observación científica.</p>
+                </div>
+                
+                <div class="work-item">
+                    <h4>🗣️ Retórica</h4>
+                    <p>Tratado sobre el arte de la persuasión que analiza los tres tipos de discurso: deliberativo, judicial y epidíctico. Define el ethos, pathos y logos.</p>
+                </div>
+                
+                <div class="work-item">
+                    <h4>🌍 Física</h4>
+                    <p>Ocho libros sobre la naturaleza del movimiento, el tiempo, el espacio y el cambio. Fundamental para entender su cosmología y filosofía natural.</p>
+                </div>
+                
+                <div class="work-item">
+                    <h4>💭 Sobre el Alma</h4>
+                    <p>Análisis de la psique humana, las facultades del alma (nutritiva, sensitiva, intelectiva) y la relación entre alma y cuerpo.</p>
+                </div>
             </div>
-            <p>El silogismo es una forma de razonamiento deductivo que consta de tres proposiciones: dos premisas y una conclusión que se deriva lógicamente de las premisas.</p>
+        </div>
+    </section>
 
-            <h3>Metafísica: Hilemorfismo, Causalidad y Acto y Potencia</h3>
-            <p>En su *Metafísica*, Aristóteles explora la naturaleza de la realidad y el ser. Desarrolló el concepto de hilemorfismo, que postula que cada sustancia individual (sustancia primera) es una unión inseparable de materia (hyle) y forma (morphē).</p>
-            <div class="quote">
-                <p>"El ser se dice de muchas maneras."</p>
-                <p>— *Metafísica*, IV, 1</p>
+    <!-- Links Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Enlaces de Interés</h2>
+            <div class="links-section">
+                <div class="links-grid">
+                    <div class="link-card">
+                        <a href="https://es.wikipedia.org/wiki/Arist%C3%B3teles" target="_blank">Wikipedia - Aristóteles</a>
+                        <p>Artículo completo sobre la vida y obra del filósofo griego</p>
+                    </div>
+                    
+                    <div class="link-card">
+                        <a href="https://plato.stanford.edu/entries/aristotle/" target="_blank">Stanford Encyclopedia</a>
+                        <p>Análisis académico profundo de la filosofía aristotélica (en inglés)</p>
+                    </div>
+                    
+                    <div class="link-card">
+                        <a href="https://www.filosofia.org/ave/001/a010.htm" target="_blank">Filosofía.org</a>
+                        <p>Recursos y textos sobre Aristóteles en español</p>
+                    </div>
+                    
+                    <div class="link-card">
+                        <a href="https://www.biografiasyvidas.com/biografia/a/aristoteles.htm" target="_blank">Biografías y Vidas</a>
+                        <p>Biografía detallada y cronología de la vida de Aristóteles</p>
+                    </div>
+                    
+                    <div class="link-card">
+                        <a href="https://www.webdianoia.com/aristoteles/aristoteles.htm" target="_blank">Webdianoia</a>
+                        <p>Portal educativo con recursos sobre filosofía aristotélica</p>
+                    </div>
+                    
+                    <div class="link-card">
+                        <a href="https://www.perseus.tufts.edu/hopper/collection?collection=Perseus:collection:Greco-Roman" target="_blank">Perseus Digital Library</a>
+                        <p>Textos originales de Aristóteles en griego y traducciones (en inglés)</p>
+                    </div>
+                </div>
             </div>
-            <p>Además, distinguió cuatro tipos de causas:</p>
-            <ul>
-                <li><strong>Causa Material:</strong> De qué está hecho algo. (Ej: el bronce de una estatua).</li>
-                <li><strong>Causa Formal:</strong> La esencia o diseño de algo. (Ej: la forma de la estatua).</li>
-                <li><strong>Causa Eficiente:</strong> Quién o qué produce algo. (Ej: el escultor).</li>
-                <li><strong>Causa Final:</strong> El propósito o fin para el que existe algo. (Ej: el propósito de la estatua, su belleza).</li>
-            </ul>
-            <p>Introdujo también la distinción entre acto (energía, entelequia) y potencia (dynamis), que explica el cambio y el movimiento. Todo lo que existe está en un estado de acto o de potencia, y el cambio es el paso de la potencia al acto.</p>
+        </div>
+    </section>
 
-            <h3>Ética: La Eudaimonía y la Virtud</h3>
-            <p>En la *Ética a Nicómaco*, Aristóteles sostiene que el fin último de la vida humana es la *eudaimonía* (felicidad o florecimiento humano), que se alcanza a través de la actividad racional y virtuosa.</p>
-            <div class="quote">
-                <p>"La felicidad es una actividad del alma conforme a la virtud perfecta."</p>
-                <p>— *Ética a Nicómaco*, I, 7, 1098a 16-18</p>
-            </div>
-            <p>Aristóteles desarrolló la teoría de la virtud como un justo medio entre dos extremos viciosos (uno por exceso y otro por defecto). Por ejemplo, la valentía es el justo medio entre la cobardía y la temeridad.</p>
+    <script>
+        // Smooth scrolling for the scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('.section').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
 
-            <h3>Política: La Polis y las Formas de Gobierno</h3>
-            <p>En su *Política*, Aristóteles considera al hombre como un "animal político" (zoon politikon), lo que significa que el ser humano está destinado a vivir en comunidad y que la polis (ciudad-estado) es la forma más alta de organización social.</p>
-            <div class="quote">
-                <p>"Es evidente que la ciudad es por naturaleza anterior a la casa y a cada uno de nosotros, porque el todo es necesariamente anterior a la parte."</p>
-                <p>— *Política*, I, 2, 1253a 18-20</p>
-            </div>
-            <p>Clasificó las formas de gobierno en correctas (monarquía, aristocracia, politia) y desviadas (tiranía, oligarquía, democracia), basándose en si el gobierno busca el bien común o el interés propio de los gobernantes.</p>
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-            <h3>Retórica y Poética</h3>
-            <p>En la *Retórica*, Aristóteles analiza los medios de persuasión (logos, pathos, ethos), fundamentales para la oratoria. En la *Poética*, examinó la tragedia, sus elementos (trama, carácter, elocución, pensamiento, espectáculo, melodía) y su efecto purificador (catarsis) en el espectador.</p>
-            <div class="quote">
-                <p>"La tragedia es, pues, imitación de una acción noble y completa, de cierta extensión, con lenguaje adornado, separada cada una de las especies de adorno en sus propias partes, mediante la acción y no mediante la narración, y que, con el auxilio de la compasión y del temor, efectúa la purgación de tales afecciones."</p>
-                <p>— *Poética*, VI, 1449b 24-28</p>
-            </div>
-        </section>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
 
-        <section id="influencias">
-            <h2>Influencias Recibidas y Ejercidas</h2>
-            <h3>Influencias Recibidas</h3>
-            <ul>
-                <li><strong>Platón:</strong> Sin duda, la influencia más significativa. Aristóteles fue discípulo de Platón durante veinte años. Aunque criticó y se distanció de la teoría de las Formas, el marco conceptual de Platón sobre la filosofía, la ética y la política sentó las bases para el propio pensamiento de Aristóteles. De Platón heredó la búsqueda de la verdad universal y la importancia de la razón.</li>
-                <li><strong>Presocráticos:</strong> Aunque no de forma directa como Platón, Aristóteles estudió y comentó las ideas de filósofos como Heráclito (cambio), Parménides (unidad del ser), Empédocles (cuatro elementos) y Demócrito (atomismo), incorporando algunas de sus ideas y criticando otras en su propia filosofía natural.</li>
-                <li><strong>Hipócrates y la tradición médica:</strong> Su padre era médico, y Aristóteles mostró un profundo interés por la biología y la medicina, lo que se refleja en su método empírico y observacional, en sintonía con la tradición hipocrática.</li>
-            </ul>
+        document.querySelectorAll('.philosophy-card, .work-item, .link-card').forEach(el => {
+            observer.observe(el);
+        });
 
-            <h3>Influencias Ejercidas</h3>
-            <p>La influencia de Aristóteles en la historia del pensamiento occidental es inmensurable y abarca casi todas las disciplinas:</p>
-            <ul>
-                <li><strong>Filosofía:</strong>
-                    <ul>
-                        <li><strong>Estoicos y Epicúreos:</strong> Aunque divergentes, algunas de sus ideas éticas y lógicas tuvieron ecos.</li>
-                        <li><strong>Neoplatonismo:</strong> Aunque con una fuerte base platónica, el neoplatonismo absorbió elementos de la metafísica aristotélica.</li>
-                        <li><strong>Filosofía Medieval (Escolástica):</strong> Fue redescubierto en el siglo XII y se convirtió en la figura central de la filosofía escolástica cristiana, islámica y judía. Pensadores como Tomás de Aquino sintetizaron la filosofía aristotélica con la teología cristiana.</li>
-                        <li><strong>Filosofía Moderna:</strong> Aunque superado en algunas áreas por la revolución científica, su influencia se mantuvo en la lógica (hasta el siglo XIX) y en la ética y política. Pensadores como Hegel se inspiraron en su teleología.</li>
-                    </ul>
-                </li>
-                <li><strong>Ciencia:</strong>
-                    <ul>
-                        <li><strong>Biología y Zoología:</strong> Sus trabajos empíricos sentaron las bases para la zoología y la botánica durante siglos. Observó y clasificó miles de especies.</li>
-                        <li><strong>Física y Astronomía:</strong> Su cosmología geocéntrica y su física del movimiento dominaron el pensamiento científico hasta la Revolución Científica (Copérnico, Galileo, Newton).</li>
-                    </ul>
-                </li>
-                <li><strong>Política y Derecho:</strong> Sus análisis sobre las constituciones y las formas de gobierno fueron estudiados y debatidos hasta la Ilustración, influyendo en pensadores como Montesquieu.</li>
-                <li><strong>Retórica y Poética:</strong> Sus tratados siguen siendo fundamentales para el estudio de la literatura, el teatro y la comunicación.</li>
-            </ul>
-        </section>
-
-        <section id="teologia">
-            <h2>Influencia en la Teología</h2>
-            <p>La influencia de Aristóteles en la teología, tanto islámica como cristiana, fue profunda y transformadora, especialmente durante la Edad Media.</p>
-
-            <h3>Teología Islámica (Falasifa)</h3>
-            <p>A partir del siglo IX, las obras de Aristóteles fueron traducidas al árabe y estudiadas intensamente por filósofos y teólogos islámicos, conocidos como los *Falasifa*. Pensadores como Al-Kindi, Al-Farabi, Avicena (Ibn Sina) y Averroes (Ibn Rushd) no solo tradujeron y comentaron a Aristóteles, sino que también lo integraron en un marco islámico, desarrollando una tradición filosófica que influyó enormemente en Occidente.</p>
-            <ul>
-                <li><strong>Avicena:</strong> Sintetizó el neoplatonismo con el aristotelismo, desarrollando una metafísica de la existencia y la esencia, y un concepto de "Ser Necesario" que es idéntico a Dios.</li>
-                <li><strong>Averroes:</strong> Fue el comentarista más influyente de Aristóteles en el Islam. Sus "grandes comentarios" sobre las obras de Aristóteles se convirtieron en la principal fuente de conocimiento aristotélico para los pensadores latinos medievales. Su énfasis en la unidad del intelecto agente universal generó controversia tanto en el Islam como en el Cristianismo.</li>
-            </ul>
-            <p>La adaptación del concepto aristotélico de un "Primer Motor Inmóvil" (la causa primera de todo movimiento, que a su vez no se mueve) fue fundamental para la concepción de Dios en el Islam y el Cristianismo.</p>
-
-            <h3>Teología Cristiana (Escolástica)</h3>
-            <p>En el Occidente latino, el redescubrimiento de Aristóteles a partir del siglo XII, en gran parte a través de las traducciones del árabe y directamente del griego, provocó una revolución intelectual. Inicialmente hubo resistencia por parte de la Iglesia debido a las aparentes contradicciones con la doctrina cristiana (por ejemplo, la eternidad del mundo aristotélica frente a la creación *ex nihilo*).</p>
-            <p>Sin embargo, la figura clave en la integración de Aristóteles en la teología cristiana fue <strong>Santo Tomás de Aquino</strong> (siglo XIII). En su *Summa Theologiae*, Tomás de Aquino adoptó el marco conceptual aristotélico para desarrollar una teología sistemática y racional. Utilizó la metafísica, la ética y la lógica de Aristóteles para:</p>
-            <ul>
-                <li><strong>Demostraciones de la existencia de Dios:</strong> Las "cinco vías" de Tomás de Aquino se basan en gran medida en conceptos aristotélicos, como el Primer Motor Inmóvil, la Primera Causa Eficiente, el Ser Necesario y el Orden del Universo (causa final).</li>
-                <li><strong>Antropología y Ética:</strong> La ética aristotélica, centrada en las virtudes y la felicidad como fin, fue integrada por Tomás en una ética cristiana, donde la gracia divina perfecciona la naturaleza humana.</li>
-                <li><strong>Teología Natural:</strong> Aristóteles proporcionó el lenguaje y los conceptos para la razón natural que podía llevar al conocimiento de Dios sin la necesidad de la revelación divina.</li>
-            </ul>
-            <p>La síntesis tomista del aristotelismo con la fe cristiana se convirtió en la filosofía oficial de la Iglesia Católica, y la influencia de Aristóteles se extendió a todas las ramas del saber teológico y filosófico hasta bien entrada la modernidad.</p>
-        </section>
-
-        <section id="enlaces">
-            <h2>Enlaces Externos y Fuentes de Información</h2>
-            <ul>
-                <li><a href="https://es.wikipedia.org/wiki/Arist%C3%B3teles" target="_blank">Aristóteles en Wikipedia (Español)</a></li>
-                <li><a href="https://plato.stanford.edu/entries/aristotle/" target="_blank">Aristotle en Stanford Encyclopedia of Philosophy (Inglés)</a></li>
-                <li><a href="https://www.britannica.com/biography/Aristotle" target="_blank">Aristotle en Encyclopedia Britannica (Inglés)</a></li>
-                <li><a href="https://iep.utm.edu/aristotl/" target="_blank">Aristotle en Internet Encyclopedia of Philosophy (Inglés)</a></li>
-                <li><a href="https://www.gutenberg.org/ebooks/author/2747" target="_blank">Obras de Aristóteles en Project Gutenberg</a></li>
-                <li><a href="https://archive.org/search?query=Aristoteles" target="_blank">Obras de Aristóteles en Archive.org</a></li>
-                <li>
-                    <strong>Artículos en Academia.edu sobre Aristóteles:</strong>
-                    <ul>
-                        <li><a href="https://www.academia.edu/search?q=aristoteles" target="_blank">Buscar "aristoteles" en Academia.edu</a> (Aquí encontrarás una gran cantidad de artículos, ensayos y tesis sobre el filósofo. Se recomienda usar palabras clave más específicas para refinar la búsqueda, como "Aristóteles ética", "Aristóteles metafísica", etc.)</li>
-                        </ul>
-                </li>
-            </ul>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Página sobre Aristóteles. Todos los derechos reservados.</p>
-    </footer>
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.2);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
