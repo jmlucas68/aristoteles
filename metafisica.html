@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Metafísica de Aristóteles: Un Viaje a la Realidad Última</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f8f0e3, #e6d3bb);
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        header {
+            background-color: #5d4037; /* Marrón oscuro */
+            color: white;
+            padding: 1.5em 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        header p {
+            font-style: italic;
+            margin-top: 0.5em;
+            font-size: 1.2em;
+        }
+        nav {
+            background-color: #795548; /* Marrón medio */
+            padding: 0.8em 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8em 1.5em;
+            margin: 0 0.5em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #a1887f; /* Marrón claro */
+            transform: translateY(-2px);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2em auto;
+            padding: 0 1.5em;
+        }
+        section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2em;
+            padding: 2em;
+            position: relative;
+            overflow: hidden;
+        }
+        section h2 {
+            color: #4e342e; /* Marrón muy oscuro */
+            border-bottom: 2px solid #a1887f;
+            padding-bottom: 0.5em;
+            margin-top: 0;
+            font-size: 2.2em;
+            text-align: center;
+        }
+        section p {
+            margin-bottom: 1em;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2em;
+            margin-top: 2em;
+        }
+        .concept-card {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5em;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .concept-card h3 {
+            color: #6d4c41; /* Marrón */
+            margin-top: 0;
+            font-size: 1.5em;
+            border-bottom: 1px dashed #c0b2a3;
+            padding-bottom: 0.5em;
+        }
+        .concept-card p {
+            font-size: 0.95em;
+            color: #555;
+            text-align: left;
+        }
+        .diagram {
+            text-align: center;
+            margin: 2em 0;
+        }
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #b28a5c; /* Dorado suave */
+            color: white;
+            padding: 0.8em 1.8em;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 1em;
+            font-size: 1.1em;
+        }
+        .cta-button:hover {
+            background-color: #d4a96b; /* Dorado más claro */
+            transform: translateY(-2px);
+        }
+        footer {
+            background-color: #5d4037;
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+            margin-top: 3em;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+        footer .links a {
+            color: #ffcc80;
+            text-decoration: none;
+            margin: 0 1em;
+            transition: color 0.3s ease;
+        }
+        footer .links a:hover {
+            color: white;
+        }
+
+        /* Estilos para el libro a libro */
+        .book-section {
+            background-color: #fffaf0; /* Crema */
+            border-left: 5px solid #d7b59e; /* Marrón claro */
+            padding: 1.8em;
+            margin-bottom: 1.5em;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .book-section h3 {
+            color: #6d4c41;
+            font-size: 1.6em;
+            margin-top: 0;
+            margin-bottom: 0.8em;
+        }
+        .book-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .book-section ul li {
+            margin-bottom: 0.5em;
+            position: relative;
+            padding-left: 1.5em;
+        }
+        .book-section ul li::before {
+            content: '•';
+            color: #b28a5c;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>La Metafísica de Aristóteles</h1>
+        <p>Un Viaje Profundo a las Causas Primeras y los Primeros Principios</p>
+    </header>
+
+    <nav>
+        <a href="#introduccion">Introducción</a>
+        <a href="#conceptos-clave">Conceptos Clave</a>
+        <a href="#estructura-libro">Estructura del Libro</a>
+        <a href="#relevancia">Relevancia Actual</a>
+        <a href="#enlaces">Recursos</a>
+    </nav>
+
+    <div class="container">
+        <section id="introduccion">
+            <h2>Introducción a la Metafísica Aristotélica</h2>
+            <p>La "Metafísica" de Aristóteles es una de las obras más fundamentales e influyentes en la historia del pensamiento occidental. No fue titulada "Metafísica" por el propio Aristóteles, sino que este nombre le fue dado por Andrónico de Rodas en el siglo I a.C. debido a que su ubicación en la colección de obras de Aristóteles estaba "más allá de la física" (μετά τά φυσικά).</p>
+            <p>Esta obra no trata un tema único de forma sistemática, sino que es una colección de catorce libros (designados por letras griegas) que abordan diversos problemas de la filosofía primera o "ciencia de lo que es en tanto que es". Aristóteles busca establecer una ciencia que estudie los principios y las causas primeras de la realidad, aquello que subyace a todo lo que existe, trascendiendo las particularidades de las ciencias individuales (como la física o las matemáticas).</p>
+            <p>Es un tratado complejo y profundo que explora la naturaleza de la realidad, la substancia, la causa, la potencia y el acto, la unidad y la pluralidad, la existencia de Dios (el Motor Inmóvil) y la relación entre el ser y el pensamiento. Constituye la base de gran parte de la ontología y la teología natural occidental.</p>
+        </section>
+
+        <section id="conceptos-clave">
+            <h2>Conceptos Clave de la Metafísica</h2>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>El Ser en Cuanto Ser (Ontología)</h3>
+                    <p>El objeto principal de la metafísica aristotélica es el "ser en cuanto ser" (τὸ ὂν ᾗ ὄν). Esto significa que la metafísica no estudia un tipo particular de ser (como los entes físicos o los entes matemáticos), sino las propiedades y principios comunes a todo lo que es, simplemente por el hecho de ser.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Sustancia (Ousía)</h3>
+                    <p>La sustancia es el concepto central de la Metafísica. Aristóteles distingue entre la sustancia primera (el individuo concreto, ej. "Sócrates") y la sustancia segunda (la especie y el género, ej. "hombre", "animal"). La sustancia primera es lo que existe por sí mismo y es el soporte de las propiedades.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Las Cuatro Causas</h3>
+                    <p>Aristóteles identifica cuatro tipos de causas que explican por qué algo es como es:
+                        <ul>
+                            <li><b>Material:</b> De qué está hecho (ej. el bronce de una estatua).</li>
+                            <li><b>Formal:</b> La forma o esencia (ej. la forma de la estatua).</li>
+                            <li><b>Eficiente:</b> Quién lo produce (ej. el escultor).</li>
+                            <li><b>Final:</b> El propósito o fin (ej. la razón por la que se hizo la estatua).</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="concept-card">
+                    <h3>Potencia y Acto (Dynamis y Enérgeia)</h3>
+                    <p>Estos conceptos explican el cambio y el devenir. La <b>potencia</b> es la capacidad de ser o llegar a ser algo (ej. una semilla tiene la potencia de ser un árbol). El <b>acto</b> es la realización o actualización de esa potencia (ej. el árbol en su pleno desarrollo es el acto de la semilla).</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Motor Inmóvil</h3>
+                    <p>Aristóteles postula la existencia de un "Primer Motor Inmóvil" como la causa primera de todo movimiento en el cosmos. Es pura actualidad, inmaterial, perfecto y su actividad es puro pensamiento (νοήσις νοήσεως - "pensamiento del pensamiento"). Atrae al mundo como un objeto de amor, no por acción directa.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Unidad y Pluralidad</h3>
+                    <p>La Metafísica también aborda el problema de la unidad y la pluralidad, buscando un principio unificador para la diversidad de la realidad. Aristóteles critica las soluciones de Platón (Ideas) y los presocráticos, proponiendo su propia teoría de la sustancia como el principio de unidad.</p>
+                </div>
+            </div>
+            <div class="diagram">
+                <p><i>(Imagina aquí un diagrama conceptual ilustrando la relación entre estos conceptos, por ejemplo, las cuatro causas o la relación entre Potencia y Acto).</i></p>
+            </div>
+        </section>
+
+        <section id="estructura-libro">
+            <h2>Estructura y Contenido de la Metafísica (Libro a Libro)</h2>
+            <p>La "Metafísica" de Aristóteles se compone de 14 libros, y aunque no todos siguen un hilo narrativo continuo, cada uno aborda facetas esenciales de la "filosofía primera".</p>
+
+            <div class="book-section">
+                <h3>Libro I (Alpha, α)</h3>
+                <p>Introducción. Revisión crítica de las filosofías anteriores (presocráticos y Platón) en relación con las causas y principios. Se establece la necesidad de una ciencia de las causas primeras.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro II (Alpha elasson, α)</h3>
+                <p>Una breve nota metodológica sobre la dificultad del conocimiento y la búsqueda de la verdad. Argumenta que la filosofía no debe buscar un fin práctico sino la sabiduría por sí misma.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro III (Gamma, Γ)</h3>
+                <p>Presenta las "aporías" o problemas fundamentales de la metafísica: ¿es una ciencia de las sustancias, de los primeros principios, de los axiomas lógicos? Discute la relación entre el ser y la unidad, y si la metafísica se ocupa también del no-ser.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro IV (Delta, Δ)</h3>
+                <p>Un "léxico filosófico" con definiciones de los principales términos metafísicos y filosóficos, como "principio", "causa", "elemento", "naturaleza", "necesidad", "uno", "ser", "sustancia", "igual", "diferente", "oposición", "anterior", "posterior", "potencia", "acto", "posesión", "disposición", "hábito", "pasión", "privación", "parte", "todo", "género", "falso", "accidente". Es crucial para entender su terminología.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro V (Epsilon, Ε)</h3>
+                <p>Distinción entre diferentes tipos de ser: ser por accidente, ser como verdadero, y ser en sentido propio (las categorías, la potencia y el acto, la sustancia). Establece que la metafísica no estudia el ser accidental ni el ser verdadero/falso.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro VI (Zeta, Ζ)</h3>
+                <p>Considerado el "corazón" de la Metafísica. Se dedica a la sustancia (οὐσία). Examina qué es la sustancia: ¿es la materia, la forma, el compuesto de materia y forma, o lo universal? Aristóteles argumenta a favor de la forma como sustancia principal.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro VII (Eta, Η)</h3>
+                <p>Continúa la investigación sobre la sustancia, enfocándose en la relación entre la sustancia y la definición. Se profundiza en la sustancia como forma y como acto, y la relación con la materia.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro VIII (Theta, Θ)</h3>
+                <p>Desarrolla la distinción fundamental entre potencia (δύναμις) y acto (ἐνέργεια). Explora cómo el acto es anterior a la potencia en el tiempo, en la perfección y en la esencia, y cómo el acto explica el movimiento y el cambio.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro IX (Iota, Ι)</h3>
+                <p>Investiga los conceptos de la unidad (ἕν) y la multiplicidad, la identidad y la diferencia, la semejanza y la desemejanza. Continúa la discusión sobre el ser y sus significados, la oposición y la privación.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro X (Kappa, Κ)</h3>
+                <p>Resume y reitera puntos clave de los libros anteriores (principalmente de Γ, Ε, Ζ, Η, Θ). Algunos académicos lo consideran un resumen o una versión abreviada de libros anteriores, posiblemente no escrita por Aristóteles mismo o para el mismo propósito.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro XI (Lambda, Λ)</h3>
+                <p>Contiene la famosa doctrina del Primer Motor Inmóvil. Se discute la eternidad del movimiento, la necesidad de una causa primera inmovible y eterna, la naturaleza de este motor como acto puro y pensamiento del pensamiento. También trata la pluralidad de motores celestes.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro XII (My, Μ)</h3>
+                <p>Crítica a la teoría de las Ideas de Platón y a la teoría de los números ideales. Aristóteles argumenta contra la existencia separada de entidades universales y matemáticas, enfatizando la inmanencia de las formas en las sustancias individuales.</p>
+            </div>
+
+            <div class="book-section">
+                <h3>Libro XIII (Ny, Ν)</h3>
+                <p>Continuación de la crítica a la filosofía platónica de los números y las Ideas. Discusión sobre la relación entre los números, las ideas y los objetos sensibles, y el problema de la participación.</p>
+            </div>
+        </section>
+
+        <section id="relevancia">
+            <h2>Relevancia y Legado de la Metafísica</h2>
+            <p>La "Metafísica" de Aristóteles ha ejercido una influencia inmensurable a lo largo de la historia del pensamiento. Sus conceptos se convirtieron en la base de la filosofía occidental durante siglos y aún hoy son objeto de estudio y debate:</p>
+            <ul>
+                <li>**Escolástica Medieval:** Fue fundamental para la filosofía medieval, especialmente para pensadores como Tomás de Aquino, quienes la integraron en la teología cristiana, adaptando conceptos como el Motor Inmóvil a la idea de Dios.</li>
+                <li>**Ontología:** Sentó las bases de la ontología (la rama de la filosofía que estudia el ser y la existencia), estableciendo muchas de las categorías y problemas que aún se discuten.</li>
+                <li>**Filosofía de la Ciencia:** Su análisis de las cuatro causas y la distinción entre potencia y acto influyó en la comprensión de la explicación científica durante siglos.</li>
+                <li>**Lingüística y Lógica:** Su estudio de las categorías y la sustancia también tiene implicaciones profundas en la filosofía del lenguaje y la lógica.</li>
+                <li>**Filosofía Moderna y Contemporánea:** Aunque criticado y reinterpretado, su pensamiento sigue siendo un punto de referencia esencial para entender las raíces de la metafísica occidental y para abordar problemas persistentes sobre la naturaleza de la realidad.</li>
+            </ul>
+            <p>Leer la "Metafísica" es adentrarse en los cimientos del pensamiento filosófico y comprender cómo Aristóteles intentó dar respuesta a las preguntas más profundas sobre la existencia.</p>
+        </section>
+
+        <section id="enlaces">
+            <h2>Recursos para Explorar la Metafísica</h2>
+            <p>Aquí tienes enlaces para acceder a la obra y aprender más sobre ella:</p>
+            <p>
+                <a href="https://archive.org/details/aristmetafs/mode/2up" target="_blank" class="cta-button">Leer la Metafísica en Archive.org (PDF/ePub)</a>
+                <br><br>
+<iframe
+      src="https://archive.org/embed/aristmetafs"
+      width="560" height="384" frameborder="0"
+      webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen
+    ></iframe>
+                <a href="https://es.wikipedia.org/wiki/Metaf%C3%ADsica_(Arist%C3%B3teles)" target="_blank" class="cta-button">Ver la Metafísica en Wikipedia</a>
+                <br><br>
+                <a href="https://www.gutenberg.org/ebooks/search/?query=Aristotle+Metaphysics&submit_search=Go%21" target="_blank" class="cta-button">Buscar en Project Gutenberg (Inglés)</a>
+            </p>
+            <p>Te animamos a explorar estas fuentes para profundizar en tu comprensión de esta obra maestra filosófica.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Explorando la Filosofía. Todos los derechos reservados.</p>
+        <div class="links">
+            <a href="https://archive.org/" target="_blank">Archive.org</a> |
+            <a href="https://es.wikipedia.org/" target="_blank">Wikipedia</a> |
+            <a href="https://www.gutenberg.org/" target="_blank">Project Gutenberg</a>
+        </div>
+    </footer>
+</body>
+</html>
