@@ -170,6 +170,9 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
             border-left: 5px solid #f59e0b;
+            display: flex; /* Added for button alignment */
+            flex-direction: column; /* Added for button alignment */
+            justify-content: space-between; /* Added for button alignment */
         }
 
         .work-item:hover {
@@ -188,6 +191,28 @@
             color: #4a5568;
             font-size: 1rem;
             line-height: 1.6;
+            margin-bottom: 15px; /* Added margin for button spacing */
+        }
+        
+        /* New style for the button within work-item */
+        .work-item-button {
+            display: inline-block;
+            background-color: #8b5cf6; /* A purple tone */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            align-self: flex-start; /* Aligns button to the start within the flex container */
+            margin-top: auto; /* Pushes the button to the bottom if content is uneven */
+        }
+
+        .work-item-button:hover {
+            background-color: #7c3aed;
+            transform: translateY(-2px);
         }
 
         /* Links Section */
@@ -302,7 +327,6 @@
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
     <section class="hero">
         <div class="floating-element"></div>
         <div class="floating-element"></div>
@@ -317,7 +341,6 @@
         <div class="scroll-indicator">↓</div>
     </section>
 
-    <!-- Philosophy Section -->
     <section class="section">
         <div class="container">
             <h2>Su Filosofía</h2>
@@ -355,7 +378,6 @@
         </div>
     </section>
 
-    <!-- Works Section -->
     <section class="section">
         <div class="container">
             <h2>Obras Principales</h2>
@@ -365,9 +387,10 @@
                     <p>Colección de seis tratados sobre lógica: Categorías, Sobre la interpretación, Primeros analíticos, Segundos analíticos, Tópicos y Refutaciones sofísticas. Fundamento de la lógica occidental.</p>
                 </div>
                 
-                <div class="work-item">
+                <div class="work-item" id="metafisica-obra">
                     <h4>🌌 Metafísica</h4>
                     <p>Catorce libros que exploran la naturaleza del ser, la sustancia, la causalidad y la existencia de Dios. Obra fundamental de la filosofía occidental que investiga "el ser en cuanto ser".</p>
+                    <a href="metafisica.html" class="work-item-button">Ver más sobre Metafísica</a>
                 </div>
                 
                 <div class="work-item">
@@ -408,7 +431,6 @@
         </div>
     </section>
 
-    <!-- Links Section -->
     <section class="section">
         <div class="container">
             <h2>Enlaces de Interés</h2>
